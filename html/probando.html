@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel Automático de Imágenes</title>
+    <!-- Incluir todos los CSS existentes -->
+    <link rel="stylesheet" href="../css/style_Globales.css">
+    <link rel="stylesheet" href="../css/style_Header.css">
+    <link rel="stylesheet" href="../css/style_Footer.css">
+    <link rel="stylesheet" href="../css/style_Navigation.css">
+    <link rel="stylesheet" href="../css/style_destinos.css">
+    <link rel="stylesheet" href="../css/style_probando.css">
+    <link rel="stylesheet" href="../css/pantallacarga.css">
+    <link rel="stylesheet" href="../css/style_Audio.css">
+    <link rel="stylesheet" href="../css/style_Services.css">
+    <link rel="stylesheet" href="../css/style_values.css">
+    <link rel="stylesheet" href="../css/style_Vision-Mission.css">
+    <link rel="stylesheet" href="../css/style_Contactenos.css">
+    <link rel="stylesheet" href="../css/style_acerca.css">
+    <link rel="stylesheet" href="../css/style_reclamaciones.css">
+    <link rel="stylesheet" href="../css/style_Hero Section.css">
+    <style>
+        .carousel-container {
+            max-width: 1100px;
+            width: 95vw;
+            aspect-ratio: 16/7;
+            margin: 40px auto;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+            background: #fff;
+            position: relative;
+        }
+        .carousel-slide {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 16/7;
+            object-fit: cover;
+            background: #222;
+            position: absolute;
+            left: 0; top: 0;
+            opacity: 0;
+            transition: opacity 1s cubic-bezier(.4,0,.2,1), transform 1.2s cubic-bezier(.4,0,.2,1);
+            z-index: 1;
+            transform: scale(1.01);
+        }
+        .carousel-slide.active {
+            opacity: 1;
+            z-index: 2;
+            transform: scale(1);
+        }
+        .carousel-caption {
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.55) 90%, rgba(0,0,0,0.10) 100%);
+            color: #fff;
+            padding: 22px 40px 18px 40px;
+            font-size: 1.25rem;
+            text-align: left;
+            z-index: 3;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+            max-height: 120px;
+            overflow-y: auto;
+        }
+        .carousel-dots {
+            text-align: center;
+            margin: 18px 0 10px 0;
+            position: relative;
+            z-index: 4;
+        }
+        .carousel-dot {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin: 0 6px;
+            background: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .carousel-dot.active {
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel-container" id="carousel-container">
+        <!-- Las imágenes y captions se insertan por JS -->
+        <div class="carousel-dots"></div>
+    </div>
+    <script src="../js/destinosData.js"></script>
+    <script>
+        // Extraer solo las primeras 10 ciudades capitales para el demo del carrusel
+        const data = (typeof destinosData !== 'undefined' ? destinosData : []).slice(0, 10);
+        const container = document.getElementById('carousel-container');
+        const dotsContainer = container.querySelector('.carousel-dots');
+        let slides = [];
+        let captions = [];
+        let currentIndex = 0;
+        let intervalId;
+
+        // Crear slides y captions dinámicamente
+        data.forEach((destino, i) => {
+            const img = document.createElement('img');
+            img.src = destino.imagen;
+            img.alt = destino.nombre;
+            img.className = 'carousel-slide' + (i === 0 ? ' active' : '');
+            img.style.zIndex = i === 0 ? 2 : 1;
+            container.insertBefore(img, dotsContainer);
+            slides.push(img);
+
+            const caption = document.createElement('div');
+            caption.className = 'carousel-caption';
+            caption.innerHTML = `<strong>${destino.nombre}</strong><br><span>${destino.descripcion}</span>`;
+            caption.style.display = i === 0 ? 'block' : 'none';
+            container.insertBefore(caption, dotsContainer);
+            captions.push(caption);
+        });
+
+        // Crear dots
+        data.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+            dot.addEventListener('click', () => showSlide(i, true));
+            dotsContainer.appendChild(dot);
+        });
+
+        function showSlide(index, manual = false) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+                captions[i].style.display = i === index ? 'block' : 'none';
+                dotsContainer.children[i].classList.toggle('active', i === index);
+            });
+            currentIndex = index;
+            if (manual) {
+                clearInterval(intervalId);
+                autoSlide();
+            }
+        }
+
+        function autoSlide() {
+            intervalId = setInterval(() => {
+                let idx = (currentIndex + 1) % slides.length;
+                showSlide(idx);
+            }, 3500);
+        }
+
+        showSlide(0);
+        autoSlide();
+    </script>
+</body>
+</html>

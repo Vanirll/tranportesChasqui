@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/../images/Icono.ico">
+    <link rel="stylesheet" href="../css/style_Globales.css">
+    <link rel="stylesheet" href="../css/style_Header.css">
+    <link rel="stylesheet" href="../css/style_Navigation.css">
+    <link rel="stylesheet" href="../css/style_Services.css">
+    <link rel="stylesheet" href="../css/style_Footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style_Audio.css">
+    <title>Transportes Chasqui S. A.</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <a href="../index.html">
+                    <img src="../images/logo.png" alt="Logo Transportes Chasqui" class="logo">
+                </a>
+                <div class="title-container">
+                    <h1>Transportes Chasqui S.A.</h1>
+                    <p class="slogan">¡Más rápido, más seguro!</p>
+                </div>
+            </div>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="../index.html">INICIO</a></li>
+                    <li class="has-submenu">
+                        <a href="../html/servicios.html">SERVICIOS</a>
+                        <ul class="submenu">
+                            <li><a href="../html/servicios/carga_pesadas.html"><i class="fas fa-dolly-flatbed"></i>
+                                    Carga Pesada</a></li>
+                            <li><a href="../html/servicios/internacional.html"><i class="fas fa-globe-americas"></i>
+                                    Internacional</a></li>
+                            <li><a href="../html/servicios/mudanzas.html"><i class="fas fa-truck-moving"></i>
+                                    Mudanzas</a></li>
+                            <li><a href="../html/servicios/mercancias_peligrosas.html"><i
+                                        class="fas fa-exclamation-triangle"></i> Mercancías Peligrosas</a></li>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="html/destinos.html" >DESTINOS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="servicios-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nuestros Servicios</h2>
+                    <div class="title-underline"></div>
+                    <p class="section-description">
+                        En Transportes Chasqui S.A., ofrecemos una amplia gama de servicios diseñados para satisfacer
+                        todas tus
+                        necesidades de transporte y logística.
+                    </p>
+                </div>
+
+                <div class="servicios-grid">
+                    <div class="servicio-card">
+                        <div class="servicio-icon">
+                            <i class="fas fa-truck-moving"></i>
+                        </div>
+                        <h3>Transporte de carga pesada</h3>
+                        <p>Movemos grandes volúmenes de carga con seguridad y eficiencia.</p>
+                        <a href="../html/servicios/carga_pesadas.html" class="servicio-link">Más información <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="servicio-card">
+                        <div class="servicio-icon">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <h3>Envíos nacionales e internacionales</h3>
+                        <p>Conectamos destinos dentro y fuera del país con rapidez y confianza.</p>
+                        <a href="../html/servicios/internacional.html" class="servicio-link">Más información <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="servicio-card">
+                        <div class="servicio-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Servicio de mudanzas</h3>
+                        <p>Hacemos que tu mudanza sea fácil y sin complicaciones.</p>
+                        <a href="../html/servicios/mudanzas.html" class="servicio-link">Más información <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="servicio-card">
+                        <div class="servicio-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h3>Transporte de mercancías peligrosas</h3>
+                        <p>Garantizamos el manejo seguro de materiales sensibles.</p>
+                        <a href="../html/servicios/mercancias_peligrosas.html" class="servicio-link">Más información <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="servicio-card">
+                        <div class="servicio-icon">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                        <h3>Logística y distribución</h3>
+                        <p>Optimizamos tus procesos logísticos para mayor eficiencia.</p>
+                    </div>
+
+                    <div class="servicio-card">
+                        <div class="servicio-icon">
+                            <i class="fas fa-warehouse"></i>
+                        </div>
+                        <h3>Traslado  y gestión de inventarios</h3>
+                        <p>Ofrecemos soluciones de almacenamiento seguras y eficientes.</p>
+                </div>
+            </div>
+            <div class="servicios-cta">
+                    <p>¿Necesitas un servicio personalizado?</p>
+                    <a href="../html/footer/contactenos.html" class="btn">Contáctanos ahora</a>
+                </div>
+        </section>
+    </main>
+
+        <div id="footer-placeholder"></div>
+
+    <!--footer-->
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <div class="audio-player">
+        <button id="toggle-audio" class="audio-toggle">
+            <i class="fas fa-volume-up" id="volume-icon"></i>
+        </button>
+        <audio id="background-audio" src="../audio/audio.mp3"></audio>
+    </div>
+
+    <script>
+        // Menú responsivo tipo drawer lateral
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+        menuToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            navLinks.classList.toggle('show');
+        });
+        // Cierra el menú al hacer click fuera del panel
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768 && navLinks.classList.contains('show')) {
+                if (!navLinks.contains(e.target) && e.target !== menuToggle && !menuToggle.contains(e.target)) {
+                    navLinks.classList.remove('show');
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

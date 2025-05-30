@@ -1,0 +1,89 @@
+.carga-pesada {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f5f7fa;
+  color: #333;
+  padding-bottom: 60px;
+}
+
+/* HERO */
+.carga-pesada .hero {
+  background-image: url('https://images.unsplash.com/photo-1558888469-5a52934f53aa');
+  background-size: cover;
+  background-position: center;
+  padding: 80px 20px;
+  color: orange;
+  text-align: center;
+}
+.carga-pesada .hero h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+.carga-pesada .hero p {
+  font-size: 1.2em;
+}
+
+/* SECCIONES */
+.carga-pesada .info,
+.carga-pesada .benefits,
+.carga-pesada .services,
+.carga-pesada .cta {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+.carga-pesada h2 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+.carga-pesada ul {
+  padding-left: 20px;
+}
+.carga-pesada ul li {
+  margin-bottom: 10px;
+}
+
+/* CARDS */
+.carga-pesada .cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.carga-pesada .card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  flex: 1 1 30%;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+.carga-pesada .card:hover {
+  transform: translateY(-5px);
+}
+.carga-pesada .card h3 {
+  margin-top: 0;
+  color: #1e2d3b;
+}
+
+/* CTA */
+.carga-pesada .cta {
+  text-align: center;
+  background-color: #34495e;
+  color: white;
+  padding: 40px 20px;
+  border-radius: 10px;
+}
+.carga-pesada .cta button {
+  padding: 12px 24px;
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 15px;
+}
+.carga-pesada .cta button:hover {
+  background-color: #d35400;
+}

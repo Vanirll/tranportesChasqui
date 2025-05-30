@@ -1,0 +1,131 @@
+/* Header */
+header {
+    background-color: #2a4db3;
+    color: #f9f9f9;
+    padding: 15px 0;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title {
+    color: #f9f9f9;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.title-underline {
+    width: 80px;
+    height: 4px;
+    background: var(--accent-color);
+    margin: 0 auto 20px;
+    border-radius: 2px;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.logo {
+    width: 170px;
+    height: auto;
+    margin-right: 15px;
+}
+
+.title-container h1 {
+    color: var(--white);
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.slogan {
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0.9;
+}
+.btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.btn:hover {
+    background-color: #e05a00;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 6px 0;
+  }
+  .logo-container {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0;
+  }
+  .logo {
+    width: 40px;
+    margin-right: 8px;
+    margin-bottom: 0;
+  }
+  .title-container h1 {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+  .slogan {
+    font-size: 0.7rem;
+    margin-bottom: 0;
+  }
+  nav {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    position: static;
+    justify-content: center;
+  }
+  .nav-links {
+    display: flex !important;
+    flex-direction: row;
+    position: static;
+    width: auto;
+    height: auto;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0 auto;
+    border-radius: 0;
+    transition: none;
+    overflow: visible;
+    justify-content: center;
+  }
+  .nav-links li {
+    width: auto;
+    text-align: left;
+  }
+  .nav-links li a {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+  .menu-toggle, .mobile-menu {
+    display: none !important;
+  }
+}
